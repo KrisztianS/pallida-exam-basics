@@ -32,8 +32,8 @@ The application is accepted if:
 
 ###  What is the difference between a function and a method? [2p]
 #### Your answer:
-[add your answer here]
+Functions are code pieces that can operate with data structures, and can return them. Methods are functions, that working in a classes, and are called by objects.
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-[add your answer here]
+Constructor is a definition that runs firs when a class is called, it contains the initial main things, python also calss this when a new instance of this class is created.
