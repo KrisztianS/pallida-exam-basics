@@ -36,4 +36,4 @@ Functions are code pieces that can operate with data structures, and can return 
 
 ### What is the constructor? When it is used? [2p]
 #### Your answer:
-Constructor is a definition that runs firs when a class is called, it contains the initial main things, python also calss this when a new instance of this class is created.
+Constructor is a funcion(method) that runs firs when a class is called, it contains the initial main things, python also calss this when a new instance of this class is created.
