@@ -7,3 +7,20 @@
 # One animal should be stored only at once
 # Each animal should be written in separate lines
 # The program should only save animals, no need to print them
+import sys
+
+def get_arguments():
+        if len(sys.argv) > 1:
+            return str(sys.argv[1:])
+        return None
+
+def command():
+    if get_arguments() is None:
+        print("```fav_animals [animal] [animal]```")
+    else:
+        animals = open("favourites.txt", "a")
+        animals.write("\n" + get_arguments())
+        animals.close()
+
+get_arguments()
+command()
