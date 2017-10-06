@@ -21,14 +21,12 @@ class CandyShop():
     def __init__(self, sugar):
         self.sugar_stored = sugar
         self.income = 0
-        self.storage = "Inventory:" + self.candies + "candies, " + self.lollipops + "lollipops, " + "Income:" + self.income + ", " + "Sugar: " + self.sugar_stored + "gr"
         self.candies = 0
         self.lollipops = 0
-        print(self.storage)
-    
+        self.price_of_candy = 20
+        self.price_of_lollipop = 10
+        
     def create_sweets(self, sweet):
-        self.candies = 0
-        self.lollipops = 0
         self.sweet = sweet
         if self.sweet == "candy":
             self.candies += 1
@@ -37,12 +35,32 @@ class CandyShop():
             self.lollipops += 1
             self.sugar_stored -= 5
 
+    def raise_prices(self, percentage):
+        self.percentage = percentage
+        self.price_of_candy *= percentage * 0.01
+        self.price_of_lollipop *= percentage * 0.01
+
+    def sell(self, sweet, amount):
+        self.sweet = sweet
+        self.amount = amount
+        if sweet == "lollipop":
+            self.lollipops -= amount
+            self.income += amount * self.price_of_lollipop
+        elif sweet == "candy":
+            self.candies -= 1
+            self.income += amount * self.price_of_candy
+
+    def buy_sugar(self, sugar_amount):
+        self.sugar_amount = sugar_amount
+        self.sugar_stored += sugar_amount
+        self.income -= sugar_amount * 0.1
+
 candy_shop = CandyShop(300)
 
-# candy_shop.create_sweets("candy")
-# candy_shop.create_sweets("candy")
-# candy_shop.create_sweets("lollipop")
-# candy_shop.create_sweets("lollipop")
+#candy_shop.create_sweets("candy")
+#candy_shop.create_sweets("candy")
+#candy_shop.create_sweets("lollipop")
+#candy_shop.create_sweets("lollipop")
 print(candy_shop)
 # # Should print out:
 # # Invetory: 2 candies, 2 lollipops, Income: 0, Sugar: 270gr
@@ -55,7 +73,7 @@ print(candy_shop)
 # print(candy_shop)
 # # Should print out:
 # # "Invetory: 1 candies, 1 lollipops, Income:35, Sugar: 285gr"
-# candy_shop.buy_sugar(300)
+#candy_shop.buy_sugar(400)
 # print(candy_shop)
 # # Should print out:
 # # "Invetory: 1 candies, 1 lollipops, Income:5, Sugar: 315gr"
